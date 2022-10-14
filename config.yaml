@@ -1,0 +1,24 @@
+server:
+  host: 127.0.0.1
+  port: 5000
+
+mysql:
+  host: 127.0.0.1
+  port: 3306
+  username: root
+  password: sjh080815
+  db: cmdb
+
+mongos:
+  server:
+    - cluster0-shard-00-01.ldgzi.mongodb.net:27017
+    - cluster0-shard-00-00.ldgzi.mongodb.net:27017
+    - cluster0-shard-00-02.ldgzi.mongodb.net:27017
+  username: huck
+  password: sjh080815
+
+redis:
+  host: 127.0.0.1
+  port: 6379
+
+
