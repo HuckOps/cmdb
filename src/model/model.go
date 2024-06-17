@@ -1,6 +1,7 @@
 package model
 
 import (
+	"cmdb/pkg/mysql"
 	"cmdb/src/config"
 	"cmdb/utils"
 	"fmt"
@@ -50,8 +51,29 @@ func Migrate(db *gorm.DB) {
 			if config.CmdArgs.Project && utils.Contains(UnionTagsList, "project") {
 				sql := fmt.Sprintf("CREATE INDEX %s ON `%s`(%s, project)", fmt.Sprintf("%s_project", columnName), tableName, columnName)
 				tx := db.Exec(sql)
-				fmt.Println(tx.Error.Error())
+				if tx.Error != nil {
+					fmt.Println(tx.Error.Error())
+				}
 			}
 		}
 	}
+}
+
+type Pagination struct {
+	Skip  int `json:"skip,omitempty" default:"-1"`
+	Limit int `json:"limit,omitempty" default:"10"`
+}
+
+type PaginationResult struct {
+	Count int64 `json:"count"`
+	Data  interface{}
+}
+
+func (p *Pagination) QueryPagination(model interface{}) (dest PaginationResult, err error) {
+	tx := mysql.GormClient.Count(&dest.Count)
+	if p.Limit >= 0 {
+		tx = tx.Offset(p.Skip).Limit(p.Limit)
+	}
+	err = tx.Find(&dest.Data).Error
+	return
 }
