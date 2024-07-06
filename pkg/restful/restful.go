@@ -13,27 +13,61 @@ const (
 	Failed
 )
 
-type ResponseBody struct {
+type ResponseBody[T []struct{}|struct{}|interface{}] struct {
 	Code ResponseCode `json:"code"`
-	Data interface{}  `json:"data"`
+	Data T  `json:"data"`
 	Msg  string       `json:"msg,omitempty"`
 }
 
 const BadRequestCode int = 400
 
-var BadRequest = ResponseBody{
+const ServerError int = 500
+
+var BadRequest = ResponseBody[map[string]string]{
 	Code: Failed,
 	Data: map[string]string{},
 	Msg:  "Bad request, pls check params and body",
 }
 
-var SearchError = ResponseBody{
+var Duplicate = ResponseBody[map[string]string]{
+	Code: Failed,
+	Data: map[string]string{},
+	Msg:  "Duplicate key, pls check input data",
+}
+
+var DBOperateError = ResponseBody[interface{}]{
+	Code: Failed,
+	Data: map[string]string{},
+	Msg:  "DB operate error",
+}
+
+func ErrorResponse(msg string) ResponseBody[interface{}]{
+	return ResponseBody[interface{}]{
+		Code: Failed,
+		Data: map[string]string{},
+		Msg:  msg,
+	}
+}
+
+var SearchError = ResponseBody[interface{}]{
 	Code: Failed,
 	Data: map[string]string{},
 }
 
-func Response(ctx *gin.Context, code int, body ResponseBody) {
-	ctx.JSON(code, body)
+func ResponseError(ctx *gin.Context, code int, body interface{}) {
+	response := ResponseBody[interface{}]{
+		Code: Failed,
+		Data: body,
+	}
+	ctx.JSON(code, response)
+}
+
+func Response(ctx *gin.Context, body interface{}) {
+	response := ResponseBody[interface{}]{
+		Code: Success,
+		Data: body,
+	}
+	ctx.JSON(200, response)
 }
 
 func ParsePagination(ctx *gin.Context) (pagination model.Pagination, err error) {
@@ -48,6 +82,7 @@ func ParsePagination(ctx *gin.Context) (pagination model.Pagination, err error) 
 	if err != nil {
 		return pagination, err
 	}
+	pagination.Project = ctx.GetHeader("AUTH_PROJECT")
 	pagination.Limit = limit
 	return
 }

@@ -1,18 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="AutoImportSettings">
-    <option name="autoReloadType" value="ALL" />
+    <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df96e0ca-1252-4a01-8a53-c2c3cd7515bb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/pkg/restful/restful.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controllers/groups.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/schema/common.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+    <list default="true" id="635d7202-b45e-4274-9898-5c457fcbefb3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/controllers/idc.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controllers/machine.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controllers/service.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/middleware/auth.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/device.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/idc.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/network.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/service.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/idc.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/schema/group.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/handle/common_handle.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/iplist/parse.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/request/request.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/response/response.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/response/response_errors.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/validate/validate.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/cmdb.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/server.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pkg/mysql/mysql.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/mysql/mysql.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/restful/restful.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/restful/restful.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/config.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/groups.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/groups.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/group.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/group.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/model.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/model.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/group.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/group.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/root.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/root.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,11 +49,28 @@
       </list>
     </option>
   </component>
-  <component name="GOROOT" url="file://$PROJECT_DIR$/../go/go1.21.4" />
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="false" />
+    <option name="myAllFileTypesSelected" value="true" />
+    <option name="mySelectedFileTypes">
+      <set />
+    </option>
+  </component>
+  <component name="GOROOT" url="file://E:/Program Files/Go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="2gq8dImuPrqMagAOAFkv1m71Ls4" />
+  <component name="OptimizeOnSaveOptions">
+    <option name="myRunOnSave" value="false" />
+    <option name="myAllFileTypesSelected" value="true" />
+    <option name="mySelectedFileTypes">
+      <set />
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2hzfjOAAqqr3xIZMBOKefRpjhXL" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -38,35 +78,164 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "DefaultGoTemplateProperty": "Go File",
+    "Go Build.go build main.go.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.go.formatter.settings.were.checked": "true",
     "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
-    "WebServerToolWindowFactoryState": "false",
+    "RunOnceActivity.go.modules.automatic.dependencies.download": "true",
+    "git-widget-placeholder": "master",
     "go.import.settings.migrated": "true",
-    "last_opened_file_path": "/Users/sujiahao",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "E:/迅雷下载/tongyi-jetbrains-latest.zip",
     "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)"
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
-    <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" nameIsGenerated="true">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\huck\Desktop\cmdb\utils\handle" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Go Build.go build main.go">
+    <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="cmdb" />
       <working_directory value="$PROJECT_DIR$" />
-      <parameters value="server --p" />
+      <parameters value="server" />
       <kind value="FILE" />
       <package value="cmdb" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$/main.go" />
       <method v="2" />
     </configuration>
+    <configuration name="go build model.go" type="GoApplicationRunConfiguration" factoryName="Go Application" nameIsGenerated="true">
+      <module name="cmdb" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="FILE" />
+      <package value="cmdb" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/src/model/model.go" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Go Build.go build model.go" />
+      <item itemvalue="Go Build.go build main.go" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.go build main.go" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\huck\AppData\Roaming\Subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="635d7202-b45e-4274-9898-5c457fcbefb3" name="Changes" comment="" />
+      <created>1718601961742</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1718601961742</updated>
+      <workItem from="1718601962810" duration="1179000" />
+      <workItem from="1718717298892" duration="9480000" />
+      <workItem from="1719055943183" duration="979000" />
+      <workItem from="1719058710515" duration="316000" />
+      <workItem from="1719059037223" duration="2489000" />
+      <workItem from="1719063285284" duration="38000" />
+      <workItem from="1719063369272" duration="36000" />
+      <workItem from="1719063432137" duration="774000" />
+      <workItem from="1719153320984" duration="242000" />
+      <workItem from="1719153573106" duration="8438000" />
+      <workItem from="1719237289091" duration="3355000" />
+      <workItem from="1719327665606" duration="6570000" />
+      <workItem from="1719383447115" duration="7118000" />
+      <workItem from="1719464282580" duration="12842000" />
+      <workItem from="1719551266056" duration="4302000" />
+      <workItem from="1719942577244" duration="2813000" />
+      <workItem from="1720017313069" duration="1541000" />
+      <workItem from="1720183947111" duration="1772000" />
+      <workItem from="1720185743286" duration="423000" />
+      <workItem from="1720201353515" duration="7010000" />
+      <workItem from="1720229835782" duration="6068000" />
+    </task>
+    <servers />
+  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/cmd/root.go</url>
+          <line>6</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/src/model/model.go</url>
+          <line>71</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/src/controllers/idc.go</url>
+          <line>41</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/utils/handle/common_handle.go</url>
+          <line>64</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/utils/handle/common_handle.go</url>
+          <line>62</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/utils/handle/common_handle.go</url>
+          <line>61</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/utils/handle/common_handle.go</url>
+          <line>60</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/utils/handle/common_handle.go</url>
+          <line>56</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/utils/handle/common_handle.go</url>
+          <line>58</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/utils/handle/common_handle.go</url>
+          <line>57</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
