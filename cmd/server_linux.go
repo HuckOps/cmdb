@@ -14,6 +14,7 @@ import (
 	"github.com/spf13/cobra"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
+	"net/http"
 )
 
 // @title           Swagger Example API
@@ -55,23 +56,30 @@ to quickly create a Cobra application.`,
 		srv := gin.Default()
 		srv.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 		routes.RootRoutes(srv)
-		//l, err := net.Listen("tcp", ":8080")
-		//if err != nil {
-		//	fmt.Println("Error listening:", err)
-		//	return
-		//}
+		l, err := net.Listen("tcp", ":8080")
+		if err != nil {
+			fmt.Println("Error listening:", err)
+			return
+		}
 		//srv.Run(":8081")
-		//defer l.Close()
-		//if tcpListener, ok := l.(*net.TCPListener); ok {
-		//	// 设置SO_REUSEPORT选项
-		//	if err := tcpListener.SetsockoptInt(net.SOL_SOCKET, net.SO_REUSEPORT, 1); err != nil {
-		//		fmt.Println("Error setting SO_REUSEPORT:", err)
-		//		return
-		//	}
-		//} else {
-		//	fmt.Println("Listener is not a TCP listener")
-		//	return
-		//}
+		defer l.Close()
+		if tcpListener, ok := l.(*net.TCPListener); ok {
+			// 设置SO_REUSEPORT选项
+			if err := tcpListener.SetsockoptInt(net.SOL_SOCKET, net.SO_REUSEPORT, 1); err != nil {
+				fmt.Println("Error setting SO_REUSEPORT:", err)
+				return
+			}
+		} else {
+			fmt.Println("Listener is not a TCP listener")
+			return
+		}
+		server := &http.Server{
+			Handler: srv,
+		}
+		if err := server.Serve(l); err != nil && err != http.ErrServerClosed {
+			fmt.Println("Error serving:", err)
+			return
+		}
 	},
 }
 
